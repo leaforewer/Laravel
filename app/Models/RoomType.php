@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class RoomType extends Model
+{
+    use HasFactory;
+    public function room(){
+        return $this->hasOne('App\Models\Room');
+    }
+    public function rooms(){
+        return $this->hasMany('App\Models\Room', 'id', 'room_type_id');
+    }
+}
